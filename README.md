@@ -3,21 +3,29 @@ This project was developed as a hands-on exploration of modern backend engineeri
 
 ---
 
+## Tech Stack
+* **Language:** Python 3.12
+* **Framework:** FastAPI
+* **Database:** PostgreSQL
+* **Infrastructure:** Docker
+
+---
+
+**How Short Codes Work - Example Flow:**
+1. User submits: `https://www.example.com/very/long/url/that/is/really/hard/to/share`
+2. System generates short code: `f`
+3. User gets: `https://s-url.up.railway.app/f`
+4. When visited, user is redirected to the original URL (in this case 'f' will redirect you to 'youtube' , try it)
+
+---
+
 ## Live Environment
 * **Server Domain**: [https://s-url.up.railway.app](https://s-url.up.railway.app)
 * **Interactive API Docs:** [https://s-url.up.railway.app/docs](https://s-url.up.railway.app/docs)
 * **Deployment Platform:** Railway
 * **Infrastructure:** Dockerized FastAPI service connected to a managed PostgreSQL instance.
 
-> **Note on Domain Length:** As this is hosted on a free cloud tier, the base URL is naturally long. This project focuses on the **logic** and ** architecture**, rather than the procurement of a short branded domain.
-
----
-
-## Tech Stack
-* **Language:** Python 3.12
-* **Framework:** FastAPI
-* **Database:** PostgreSQL
-* **Infrastructure:** Docker
+> **Note on Domain Length:** As this is hosted on a free cloud tier, the base URL is naturally long. The focus is on **scalable architecture and correct implementation**, rather than the procurement of a short branded domain. The same code runs identically on any cloud provider with a custom domain
 
 ---
 
