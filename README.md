@@ -11,11 +11,11 @@ This project was developed as a hands-on exploration of modern backend engineeri
 
 ---
 
-**How Short Codes Work - Example Flow:**
+# How Short Codes Work - Example Flow:
 1. User submits: `https://www.example.com/very/long/url/that/is/really/hard/to/share`
 2. System generates short code: `f`
 3. User gets: `https://s-url.up.railway.app/f`
-4. When visited, user is redirected to the original URL (in this case 'f' will redirect you to 'youtube' , try it)
+4. When visited, user is redirected to the original URL (in this case `f` will redirect you to `youtube` , try it)
 
 ---
 
