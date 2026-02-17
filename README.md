@@ -17,7 +17,7 @@ This project was developed as a hands-on exploration of modern backend engineeri
 * **Language:** Python 3.12
 * **Framework:** FastAPI
 * **Database:** PostgreSQL
-* **Infrastructure:** Docker & Docker Compose
+* **Infrastructure:** Docker
 
 ---
 
