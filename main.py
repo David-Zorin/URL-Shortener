@@ -1,25 +1,36 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from database import get_db_connection, close_db_connection
+from database import init_db_pool, close_db_pool, db_pool
 
 app = FastAPI()
 
-#root to check if server working
+# Initialize and close database pool on startup/shutdown
+#Run when the app starts
+@app.on_event("startup")
+async def startup_event():
+    await init_db_pool()
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    await close_db_pool()
+
 @app.get("/")
-def read_root():
+async def read_root():
     return {"message": "URL Shortener API is running!"}
 
-#check if database is connected
+# Health check endpoint
 @app.get("/health")
-def health_check():
+async def health_check():
     try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute("SELECT 1")
-        close_db_connection(conn)
+        async with db_pool.acquire() as conn:
+            #Query here
+            await conn.fetchval("SELECT 1")
         return JSONResponse({"status": "healthy", "database": "connected"})
     except Exception as e:
-        return JSONResponse({"status": "unhealthy", "database": "disconnected", "error": str(e)}, status_code=500)
+        return JSONResponse(
+            {"status": "unhealthy", "database": "disconnected", "error": str(e)},
+            status_code=500
+        )
 
 if __name__ == "__main__":
     import uvicorn
