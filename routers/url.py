@@ -15,6 +15,19 @@ async def health_check(conn: asyncpg.Connection = Depends(get_db)):
         return {"status": "healthy", "database": "connected"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Query failed: {str(e)}")
+    
+#show all database
+@router.get("/show_db")
+async def show_database(conn: asyncpg.Connection = Depends(get_db)):
+    try:
+        query= "select * from urls"
+        data = await conn.fetch(query)
+        return [dict(row) for row in data]
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
   
 #create and save new short url, if exist return it instantly
 @router.post("/shorten")
