@@ -1,6 +1,8 @@
+
 ## Project Motivation
 This project was developed as a hands-on exploration of modern backend engineering. The goal was to move beyond basic academic theory and touch the "under the hood" logic of scalable systems
-
+> [!IMPORTANT]
+> **Project Status:** The live server/demo (Railway) is currently offline as the trial period has concluded. However, the project remains fully functional for local exploration
 ---
 
 ## Tech Stack
